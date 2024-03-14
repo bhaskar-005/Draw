@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+
+
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: transparent;
+  }
+}
+
+
+
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.loader {
+  display: block;
+  --height-of-loader: 4px;
+  --loader-color: #0071e2;
+  width: 130px;
+  height: var(--height-of-loader);
+  border-radius: 30px;
+  background-color: rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  background: var(--loader-color);
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  border-radius: 30px;
+  animation: moving 1s ease-in-out infinite;
+  ;
+}
+
+@keyframes moving {
+  50% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0;
+    right: 0;
+    left: unset;
+  }
+}
+
+
+
+h1.ce-header{
+  @apply text-3xl font-bold
+}
+h2.ce-header{
+  @apply text-2xl font-semibold
+}
+h3.ce-header{
+  @apply text-xl font-semibold
+}
+h4.ce-header{
+  @apply text-lg font-semibold
+}
+h5.ce-header{
+  @apply text-base font-semibold
+}
+h6.ce-header{
+  @apply text-base font-semibold
+}
+
+
+
+body {
+  --sb-track-color: #e4e4e4;
+  --sb-thumb-color: #5a5a5a;
+  --sb-size: 10px;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size)
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 11px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 11px;
+  border: 1px solid #848484;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
+}
+
+/* Changes for dark mode */
+/* Base theme */
+.bn-container[data-theming-css-variables-demo][data-color-scheme] {
+  --bn-colors-editor-text: #333333; /* Dark gray text */
+  --bn-colors-editor-background: #ffffff; /* White background */
+  --bn-colors-menu-text: #333333; /* Dark gray text */
+  --bn-colors-menu-background: #ffffff; /* White background */
+  --bn-colors-tooltip-text: #666666; /* Medium gray text */
+  --bn-colors-tooltip-background: #ffffff; /* White background */
+  --bn-colors-hovered-text: #464242; /* White text */
+  --bn-colors-hovered-background: #33333317; /* Dark gray background */
+  --bn-colors-selected-text: #7a7979; /* White text */
+  --bn-colors-selected-background: #333333; /* Dark gray background */
+  --bn-colors-disabled-text: #999999; /* Light gray text */
+  --bn-colors-disabled-background: #f3f3f3; /* Light gray background */
+  --bn-colors-shadow: #666666; /* Medium gray shadow */
+  --bn-colors-border: #cccccc; /* Light gray border */
+  --bn-colors-side-menu: #333333; /* Dark gray side menu */
+  --bn-color-highlight-colors: #ffffff; /* White highlight */
+  --bn-border-radius: 4px;
+  --bn-font-family: Helvetica Neue, sans-serif;
+}
+
+.bn-container[data-theming-css-variables-demo][data-color-scheme="dark"] {
+  --bn-colors-editor-text: #ffffff; 
+  --bn-colors-editor-background: #020817; 
+  --bn-colors-side-menu: #7b8592;
+  --bn-colors-menu-text: #97979a;
+  --bn-colors-menu-text: #000000; 
+  --bn-colors-menu-background: #7d7b7b;
+  --bn-colors-hovered-text: #dcd8d8;
+  --bn-colors-hovered-background: #575656c4;
+
+
+}
