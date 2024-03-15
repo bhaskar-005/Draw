@@ -13,12 +13,12 @@ import { usePersonStore } from "@/store/store";
 
 
 const page = () => {
-  const perams = useParams();
+  const perams:any = useParams();
   const [saveFile, setSaveFile] = useState(false);
   const [whiteboardfile, setWhiteboardfile] = useState<any>(null);
   const [documentfile, setDocumentfile] = useState<any>(null);
-  const [DBwhiteboardfile, setDBWhiteboardfile] = useState<Array|null>(null);
-  const [DBdocumentfile, setDBDocumentfile] = useState<Array|null>(null);
+  const [DBwhiteboardfile, setDBWhiteboardfile] = useState<any>(null);
+  const [DBdocumentfile, setDBDocumentfile] = useState<any>(null);
   const [Dbfiles, setDbfiles] = useState<any>(null);
 
   const UserInfo = usePersonStore((state)=>state.user);

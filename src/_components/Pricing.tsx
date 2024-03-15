@@ -10,7 +10,7 @@ import LoadingBar from 'react-top-loading-bar';
 
 const Pricing = () => {
   const userinfo = usePersonStore((state) => state.user);
-  const updateUserSlice = usePersonStore((state) => state.updateUser);
+  const updateUserSlice = usePersonStore((state:any) => state.updateUser);
   const [progress, setProgress] = useState(0);
 
   // Array of pricing plans
