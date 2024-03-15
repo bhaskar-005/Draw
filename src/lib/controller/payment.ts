@@ -4,10 +4,17 @@ import Razorpay from 'razorpay'
 import User from '../models/user'
 import DBconnection from '../mongodb'
 
+const keyId = process.env.RAZORPAY_KEY_ID;
+const keySecret = process.env.RAZORPAY_KEY_SECRET;
+
+if (!keyId || !keySecret) {
+    throw new Error("Razorpay keys are not provided.");
+}
+
 const instance = new Razorpay({ 
-        key_id: process.env.RAZORPAY_KEY_ID, 
-        key_secret: process.env.RAZORPAY_KEY_SECRET 
-    })
+    key_id: keyId, 
+    key_secret: keySecret 
+});
 
 export const createOrder = async( userId:any)=>{
   try {
@@ -36,7 +43,7 @@ export const verifyPaymentOrder = async({razorpayOrderId,razorpaySignature,razor
       const body = razorpayOrderId + "|" + razorpayPaymentId;
         
       const expectedSignature = crypto
-        .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET)
+        .createHmac("sha256", keySecret)
         .update(body.toString())
         .digest("hex");
     
