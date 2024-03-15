@@ -32,7 +32,7 @@ const Navbar = () => {
                 </Link>
                 <Link href={"/dashboard/projects"}>
                   <img
-                    src={user?.picture}
+                    src={user?.picture ? user.picture : 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Windows_10_Default_Profile_Picture.svg/1200px-Windows_10_Default_Profile_Picture.svg.png'} 
                     alt="userimg"
                     className="h-[35px] w-[35px] rounded-full"
                   />
